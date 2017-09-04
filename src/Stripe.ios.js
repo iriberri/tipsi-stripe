@@ -19,7 +19,7 @@ class Stripe {
   }
   deviceSupportsApplePay = () => {
     checkInit(this)
-    TPSStripeManager.deviceSupportsApplePay()
+    return TPSStripeManager.deviceSupportsApplePay()
   }
   canMakeApplePayPayments = (options = {}) => {
     checkInit(this)
