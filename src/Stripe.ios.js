@@ -8,6 +8,7 @@ const { TPSStripeManager } = NativeModules
 
 class Stripe {
   stripeInitialized = false
+
   init = (options = {}) => {
     checkArgs(
       types.initOptionsPropTypes,
@@ -21,14 +22,15 @@ class Stripe {
     TPSStripeManager.deviceSupportsApplePay()
   }
   canMakeApplePayPayments = (options = {}) => {
+    checkInit(this)
     checkArgs(
       types.canMakeApplePayPaymentsOptionsPropTypes,
       options, 'options', 'Stripe.canMakeApplePayPayments'
     )
-    checkInit(this)
     return TPSStripeManager.canMakeApplePayPayments(options)
   }
   paymentRequestWithApplePay = (items = [], options = {}) => {
+    checkInit(this)
     checkArgs(
       types.paymentRequestWithApplePayItemsPropTypes,
       { items }, 'items', 'Stripe.paymentRequestWithApplePay'
@@ -37,46 +39,45 @@ class Stripe {
       types.paymentRequestWithApplePayOptionsPropTypes,
       options, 'options', 'Stripe.paymentRequestWithApplePay'
     )
-    checkInit(this)
     return TPSStripeManager.paymentRequestWithApplePay(items, options)
   }
   completeApplePayRequest = () => {
     checkInit(this)
-    TPSStripeManager.completeApplePayRequest()
+    return TPSStripeManager.completeApplePayRequest()
   }
   cancelApplePayRequest = () => {
     checkInit(this)
-    TPSStripeManager.cancelApplePayRequest()
+    return TPSStripeManager.cancelApplePayRequest()
   }
   openApplePaySetup = () => {
     checkInit(this)
-    TPSStripeManager.openApplePaySetup()
+    return TPSStripeManager.openApplePaySetup()
   }
   paymentRequestWithCardForm = (options = {}) => {
+    checkInit(this)
     checkArgs(
       types.paymentRequestWithCardFormOptionsPropTypes,
       options, 'options', 'Stripe.paymentRequestWithCardForm'
     )
-    checkInit(this)
     return TPSStripeManager.paymentRequestWithCardForm({
       ...options,
       theme: processTheme(options.theme),
     })
   }
   createTokenWithCard = (params = {}) => {
+    checkInit(this)
     checkArgs(
       types.createTokenWithCardParamsPropTypes,
       params, 'params', 'Stripe.createTokenWithCard'
     )
-    checkInit(this)
     return TPSStripeManager.createTokenWithCard(params)
   }
   createTokenWithBankAccount = (params = {}) => {
+    checkInit(this)
     checkArgs(
       types.createTokenWithBankAccountParamsPropTypes,
       params, 'params', 'Stripe.createTokenWithBankAccount'
     )
-    checkInit(this)
     return TPSStripeManager.createTokenWithBankAccount(params)
   }
 }
