@@ -33,15 +33,15 @@ init_new_example_project() {
 case "${TRAVIS_OS_NAME}" in
   osx)
     $HOME/.nvm/nvm.sh
-    nvm install 6.8.1
-    gem install cocoapods -v 1.1.1
+    nvm install 8.4.0
+    gem install cocoapods -v 1.3.1
     travis_wait pod repo update --silent
     npm install -g react-native-cli
     init_new_example_project
   ;;
   linux)
     $HOME/.nvm/nvm.sh
-    nvm install 6.8.1
+    nvm install 8.4.0
     npm install -g react-native-cli
     init_new_example_project
   ;;
