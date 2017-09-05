@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 
 echo "Preparing to link tipsi-stripe for iOS"
 
