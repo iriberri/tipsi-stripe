@@ -34,7 +34,7 @@ case "${TRAVIS_OS_NAME}" in
   osx)
     $HOME/.nvm/nvm.sh
     nvm install 8.4.0
-    gem install cocoapods -v 1.3.1
+    gem install cocoapods -v 1.1.1
     travis_wait pod repo update --silent
     npm install -g react-native-cli
     init_new_example_project
