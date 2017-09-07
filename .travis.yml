@@ -1,11 +1,9 @@
 matrix:
   include:
-    - os: osx
-      language: objective-c
-      osx_image: xcode8
     - os: linux
       language: android
       jdk: oraclejdk8
+      dist: trusty
       sudo: required
       android:
         components:
@@ -18,16 +16,10 @@ matrix:
           - extra-google-m2repository
           - extra-google-google_play_services
 
-cache:
-  directories:
-    - $HOME/.nvm
-    - $HOME/.npm
-    - $HOME/.cocoapods
-    - $HOME/.gradle/caches/
-    - $HOME/.gradle/wrapper/
-
-before_cache: .travis/before-cache.sh
 before_install: . .travis/before-install.sh
-install: .travis/install.sh
+install:
+- .travis/install.sh
+- android list targets
+
 before_script: .travis/before-ci.sh
 script: .travis/ci.sh
