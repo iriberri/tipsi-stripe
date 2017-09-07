@@ -21,7 +21,7 @@ matrix:
 before_install: . .travis/before-install.sh
 install:
 - .travis/install.sh
-- sdkmanager --update
+- echo y | sdkmanager --update
 
 before_script: .travis/before-ci.sh
 script: .travis/ci.sh
